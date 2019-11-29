@@ -2,25 +2,50 @@
   #include<conio.h>
   #include<stdlib.h>
 
-  #define n 10
 
   int main()
     {
-     int i,j,temp;
-	 FILE *fp,*fp2;
+     int i,j,temp,n;
      int *a;
-     //clrscr();
+    FILE *fp1,*fp2;
+    //int *a;
 
+    if((fp1=fopen("data.txt","r"))!=NULL)
+        printf("\ndata file data.txt opened successfully for reading\n");
+    else
+        printf("Error opening input data file");
 
-	 fp=fopen("D:\\teaching_2076\\DAA\\BscCSIT_DAA-master\\data.txt","r");
+    if((fp2=fopen("sorted-bubble.txt","w"))!=NULL)
+        printf("\noutput file sorted-bubble.txt opened successfully in write mode\n");
+    else
+        printf("Error opening output file");
 
-     fp2=fopen("D:\\teaching_2076\\DAA\\BscCSIT_DAA-master\\sorted_bubble.txt","w");
+    i=1;
 
-	 a=(int *)malloc(sizeof(int)*n);
+    fscanf(fp1,"%d",&temp);
 
+    while(!feof(fp1))
+    {
+     fflush(stdin);
+     fscanf(fp1,"%d",&temp);
+     i++;
+    }
 
-     for(i=0;i<n;i++)
-      fscanf(fp,"%d",a+i);
+    fclose(fp1);
+
+    fp1=fopen("data.txt","r");
+
+    n=i-1;
+
+    a=(int *)malloc(sizeof(int)*n);
+
+    for(i=0;i<n;i++)
+    {
+        fscanf(fp1,"%d",a+i);
+
+    }
+    //perform quick sort on array
+    printf("\nsorting started....\n");
 
      for(i=0;i<n-1;i++)
       {
@@ -36,12 +61,16 @@
 	  }
 
 
-     for(i=0;i<n;i++)
-      fprintf(fp2,"%d ",*(a+i));
+      printf("\nSorting complete!\n");
 
-    printf("\n Sorting finished. The sorted list is written to file sorted_bubble.txt\n");
+    printf("\nWriting sorted data to output file\n");
 
-    fclose(fp);
+    for(i=0;i<n;i++)
+     fprintf(fp2,"%d ",*(a+i));
+
+    printf("\nThe sorted file saved 'sorted-bubble'\n");
+
+    fclose(fp1);
     fclose(fp2);
     getch();
     return 0;
