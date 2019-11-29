@@ -11,7 +11,7 @@ Your task:
   1. Clone the repository to your local machine. (you can use git command or download zip file directly from here).
   
   2. Generate as many as numbers possible (at least up to the point where you can actually note the running time (more than 5 seconds for quick sort)) 
-    using  the for loop and then sort the numbers. Note the time taken until final output by both programs.
+    using  the for loop and then sort the numbers. Note the time taken until final output by both programs. For the first time, you can try to run the programs with given data in data.txt file. The data.txt file contains approximately 10000000 random numbers.
     
   3. Repeat task 1. This time instead of noting the time manually, modify the programs to automatically calculate the sorting time. 
      (hint: Use c/c++ API to compute system time before starting sorting and after finishing sorting.)
